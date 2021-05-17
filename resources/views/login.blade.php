@@ -1,6 +1,5 @@
 @extends('layouts.public')
 
-@section('title', 'Login')
 
 @section('header')
 <div class="row">
