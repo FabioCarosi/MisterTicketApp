@@ -56,7 +56,7 @@
                                 <h1>Evento #1</h1>
                             </a>
                             <span class="price">
-                                <span class="edd_price">49.00€</span>
+                                <span class="edd_price">49.00€</span> 
                             </span>
                         </div>
                     </div>
