@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Resources\Category;
-use App\Models\Resources\Product;
+use App\Models\Resources\Event;
 
 class Catalog {
 
@@ -29,6 +28,11 @@ class Catalog {
             $prods = $prods->orderBy('discountPerc', $order);
         }
         return $prods->paginate($paged);
+    }
+    
+    public function getAllEvents() {
+        $events = Event::all();
+        return $events;
     }
 
 }

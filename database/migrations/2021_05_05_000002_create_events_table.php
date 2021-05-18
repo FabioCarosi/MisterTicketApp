@@ -20,9 +20,11 @@ class CreateEventsTable extends Migration
             $table->string('eventPlace',50);
             $table->dateTime('eventData');
             $table->float('eventPrice');
-            $table->longText('eventDesc');
+            $table->string('eventShortDesc',50);
+            $table->longText('eventLongDesc');
             $table->mediumInteger('eventSeats');
             $table->tinyInteger('eventDiscount');
+            $table->binary('eventImage');
         });
     }
 

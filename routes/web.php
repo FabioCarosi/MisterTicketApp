@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -108,3 +110,7 @@ Route::view('/admin/show_promoters', 'profile.admin.show_promoters')
 
 Route::view('/admin/manage_faq', 'profile.admin.manage_faq')
         ->name('manage_faq');
+
+
+Route::get('/event', [Controllers\PublicController::class, 'showEvent'])
+        ->name('event');

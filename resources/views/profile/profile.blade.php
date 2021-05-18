@@ -70,7 +70,3 @@
     });
 </script>
 @endsection
-
-
-
-
