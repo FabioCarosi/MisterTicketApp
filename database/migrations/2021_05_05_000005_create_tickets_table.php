@@ -13,9 +13,11 @@ class CreateTicketsTable extends Migration {
      */
     public function up() {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->integerIncrements('ticketID')->unsigned()->index();
-            $table->integer('ticketEvent')->unsigned()->index();
+            $table->integerIncrements('ticketID')->index();
+            
+            $table->bigInteger('ticketEvent')->unsigned()->index();
             $table->foreign('ticketEvent')->references('eventID')->on('events');
+            
             $table->mediumInteger('ticketTransaction')->unsigned()->index();
             $table->foreign('ticketTransaction')->references('transactionID')->on('transactions');
         });
