@@ -24,7 +24,7 @@ class CreateEventsTable extends Migration
             $table->longText('eventLongDesc');
             $table->mediumInteger('eventSeats');
             $table->tinyInteger('eventDiscount');
-            $table->binary('eventImage');
+            $table->binary('eventImage')->nullable();
         });
     }
 

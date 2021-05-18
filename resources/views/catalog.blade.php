@@ -54,7 +54,7 @@
                                     <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Dettagli</a>
                                 </p>
                             </div>
-                            <span class="maxproduct"><img src="images/foto01.jpg" alt=""></span>
+                            <span class="maxproduct">@include('helpers/eventImg', ['attrs' => 'imagefrm', 'imgFile' => $event->image])</span>
                         </div>
                         <div class="product-details">
                             <a href="#">

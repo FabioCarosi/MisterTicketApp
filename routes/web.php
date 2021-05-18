@@ -15,54 +15,29 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::view('/', 'index')
+       ->name('index');
 
-Route::get('/test', function () {
-    return view('index');
-});
-
-Route::view('/catalog', 'catalog')
-        ->name('catalog');
-
-
-Route::view('/login', 'login')
+Route::view('/login', 'auth.login')
         ->name('login');
 
 Route::view('/logout', 'logout')
-        ->name('logout');
+        ->name('logout');        
 
-Route::view('/', 'layouts.public')
-        ->name('public');         
-
-Route::view('/register', 'register')
+Route::view('/register', 'auth.register')
         ->name('register');
-
-Route::view('/event', 'event')
-        ->name('event');
 
 Route::view('/faq', 'faq')
         ->name('faq');
 
-Route::view('/index', 'index')
-        ->name('index');
-
-Route::view('/welcome', 'welcome')
-        ->name('welcome');
-
 Route::view('/checkout', 'checkout')
         ->name('checkout');
-
-Route::view('/contact', 'contact')
-        ->name('contact');
 
 Route::view('/create_event', 'event.create_event')
         ->name('create_event');
 
-Route::view('/contact', 'contact')
-        ->name('contact');
+
 
 
 Route::view('/profile', 'profile.user_profile')
@@ -112,5 +87,5 @@ Route::view('/admin/manage_faq', 'profile.admin.manage_faq')
         ->name('manage_faq');
 
 
-Route::get('/event', [Controllers\PublicController::class, 'showEvent'])
-        ->name('event');
+Route::get('/catalog', [Controllers\PublicController::class, 'showEvent'])
+        ->name('catalog');
