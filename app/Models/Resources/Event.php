@@ -27,5 +27,17 @@ class Event extends Model {
         $promoterName = $promoter->name;
         return $promoterName;
     }
+    
+    public function getPromoterMail($eventPromoter) {
+        $promoter = User::find($eventPromoter);
+        $promoterMail = $promoter->userMail;
+        return $promoterMail;
+    }
+    
+    public function getPromoterPhone($eventPromoter) {
+        $promoter = User::find($eventPromoter);
+        $promoterPhone = $promoter->userPhone;
+        return $promoterPhone;
+    }
 
 }

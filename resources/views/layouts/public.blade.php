@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
         @yield('style')
         <title>MisterTicket</title>
-        
+
     </head>
 
     <body>
@@ -23,7 +23,7 @@
                         <div class="navbar-header">
                             <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
                                 <i class="fa fa-bars"></i>
-                                
+
                             </button>
                             <a href="index.html" class="navbar-brand brand"> MisterTicket </a>
                         </div>
@@ -31,21 +31,21 @@
                     </div>
                 </nav>
                 <div class="container">
-                   @yield('header')
+                    @yield('header')
                 </div>
             </div>
         </header>
 
 
 
-        
-        
+
+
         <!-- CONTENUTO DEL SITO -->
         @yield('content')
-        
-        
-        
-        
+
+
+
+
         <!-- FOOTER =============================-->
         <div class="footer text-center">
             <div class="container">
@@ -63,9 +63,26 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- SCRIPTS =============================-->
-        @yield('scripts')
+        <script src="js/jquery-.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/anim.js"></script>
         
+        @yield('scripts')
+<script>
+//----HOVER CAPTION---//	  
+jQuery(document).ready(function ($) {
+    $('.fadeshop').hover(
+            function () {
+                $(this).find('.captionshop').fadeIn(150);
+            },
+            function () {
+                $(this).find('.captionshop').fadeOut(150);
+            }
+    );
+});
+        </script>
+
     </body>        
 </html>

@@ -37,7 +37,7 @@
                     </span>
                 </div>
             </div>
-           
+
             <div class="row">
                 @isset($events)
                 @foreach($events as $event)
@@ -51,7 +51,7 @@
                                 </p>
                                 <p>
                                     <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Acquista</a>
-                                    <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Dettagli</a>
+                                    <a href="{{ route('eventID', [$event->eventID]) }}" class="learn-more detailslearn"><i class="fa fa-link"></i> Dettagli</a>
                                 </p>
                             </div>
                             <span class="maxproduct">@include('helpers/eventImg', ['attrs' => 'imagefrm', 'imgFile' => $event->image])</span>
@@ -68,38 +68,10 @@
                 </div>
                 @endforeach
                 @endisset()
-                 </div>
             </div>
-        </section>
-                
-                @endsection
+        </div>
+    </section>
 
-                @section('scripts')
-                <script src="js/jquery-.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-                <script src="js/anim.js"></script>
-                <script>
-//----HOVER CAPTION---//	  
-jQuery(document).ready(function ($) {
-    $('.fadeshop').hover(
-            function () {
-                $(this).find('.captionshop').fadeIn(150);
-            },
-            function () {
-                $(this).find('.captionshop').fadeOut(150);
-            }
-    );
-});
-                </script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script>
-$(document).ready(function () {
-    $("#myInput").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
-                </script>
-                @endsection
+    @endsection
+
+   

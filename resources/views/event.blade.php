@@ -56,7 +56,7 @@
                     <div class="product-details text-left">
                         <p>
                             {{$event->eventLongDesc}}
-                            
+
                         </p>
                     </div>
 
@@ -66,22 +66,22 @@
                 <a href="#checkout.html" class="btn btn-buynow">{{ number_format($event->getPrice(), 2, ',', '.') }} € - Acquista</a>
                 <div class="properties-box">
                     <ul class="unstyle ">
+                        <li><b class="propertyname">Categoria:</b> {{$event->eventCat}}</li>
                         <li><b class="propertyname">Data e Ora:</b> {{$event->eventData}}</li>
+                        <li><b class="propertyname">Prezzo:</b> {{ number_format($event->getPrice(), 2, ',', '.') }} €</li>
+                        <li><b class="propertyname">Sconto:</b> {{$event->eventDiscount. '%'}}</li>
                         <li><b class="propertyname">Posto:</b> {{$event->eventPlace}}</li>
+                        <li><b class="propertyname">Posti disponibili:</b> {{$event->eventSeats}}</li>
                         <li><b class="propertyname">Organizzatore:</b> {{($event->getPromoter($event->eventPromoter))}}</li>
-                        <li><b class="propertyname">Posti:</b> GNU</li>
-                        <li><b class="propertyname">Mappa:</b> Easy Digital Downloads</li>
-                        <li><b class="propertyname">Environment:</b> Wordpress</li>
-                        <li><b class="propertyname">Any Field Etc:</b> Any Detail</li>
-                        <li><b class="propertyname">Number:</b> Up to 20 specifications in this box</li>
-                        <li><b class="propertyname">Live Demo:</b><a target="_blank" href="http://www.wowthemes.net/">http://www.wowthemes.net/</a></li>
+                        <li><b class="propertyname">Telefono:</b> {{($event->getPromoterPhone($event->eventPromoter))}}</li>
+                        <li><b class="propertyname">E-mail: </b><a target="_blank" href="{{asset('mailto:').$event->getPromoterMail($event->eventPromoter)}}">{{' '.($event->getPromoterMail($event->eventPromoter))}}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="center">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.939933218729!2d13.515312415631946!3d43.58696746472868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132d802321a175a5%3A0x3e1261137bd6ae51!2sVia+Montebello%2C+10%2C+60131+San Benedetto del Tronto%2C+Italy!5e0!3m2!1sen!2sus!4v1454947673841" style="margin: 0 auto" ></iframe>
+        <iframe src="{{asset('https://www.google.com/maps/embed/v1/place?key=AIzaSyAuCP1aWy7zwwpWoFYdHAdOp_QRzS6W8Mk&q='. $event->eventPlace)}}" style="margin: 0 auto" ></iframe>
     </div>
 </section>
 @endforeach
@@ -91,21 +91,4 @@
 
 
 
-@section('script')
-<script src="js/jquery-.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/anim.js"></script>
-<script>
-//----HOVER CAPTION---//	  
-jQuery(document).ready(function ($) {
-    $('.fadeshop').hover(
-            function () {
-                $(this).find('.captionshop').fadeIn(150);
-            },
-            function () {
-                $(this).find('.captionshop').fadeOut(150);
-            }
-    );
-});
-</script>
-@endsection
+
