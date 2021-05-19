@@ -1,4 +1,4 @@
-<@extends('layouts.public')
+@extends('layouts.public')
 
 
 @section('header')
@@ -39,7 +39,7 @@
             </div>
            
             <div class="row">
-                 @isset($events)
+                @isset($events)
                 @foreach($events as $event)
                 <div class="col-md-4">
                     <div class="productbox">

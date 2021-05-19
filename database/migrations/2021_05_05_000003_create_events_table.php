@@ -15,6 +15,10 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('eventID')->unsigned()->index();
+            
+            $table->unsignedBigInteger('eventPromoter')->index();
+            $table->foreign('eventPromoter')->references('userID')->on('users');
+            
             $table->string('eventName',40);
             $table->string('eventCat',30);
             $table->string('eventPlace',50);

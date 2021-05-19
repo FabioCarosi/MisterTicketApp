@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Providers\RouteServiceProvider;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,9 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    
-    //protected $redirectTo = '/home';
-    protected $redirectTo = '/';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -51,14 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
-            'userMail' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'level' => ['required'],
-            'userPhone' => [],
-            'userAddress' => [],
-            'CF_PIVA' => [],
         ]);
     }
 
@@ -66,35 +60,14 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
         return User::create([
-            'username' => $data['username'],
             'name' => $data['name'],
-            'userMail' => $data['userMail'],
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'level' => $data['level'], 
-            'userPhone' => $data['userPhone'],
-            'userAddress' => $data['userAddress'],
-            'CF_PIVA' => $data['CF_PIVA'],
         ]);
     }
-    
-        protected function register(array $data)
-    {
-        return User::create([
-            'username' => $data['username'],
-            'name' => $data['name'],
-            'userMail' => $data['userMail'],
-            'password' => Hash::make($data['password']),
-            'level' => $data['level'], 
-            'userPhone' => $data['userPhone'],
-            'userAddress' => $data['userAddress'],
-            'CF_PIVA' => $data['CF_PIVA'],
-        ]);
-    }
-    
 }
-

@@ -89,3 +89,12 @@ Route::view('/admin/manage_faq', 'profile.admin.manage_faq')
 
 Route::get('/catalog', [Controllers\PublicController::class, 'showEvent'])
         ->name('catalog');
+
+Route::get('/catalog/{eventCat}', [Controllers\PublicController::class, 'showEventByCat'])
+        ->name('eventCat');
+
+Route::get('/event/{eventID}', [Controllers\PublicController::class, 'showEventByID'])
+        ->name('eventID');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

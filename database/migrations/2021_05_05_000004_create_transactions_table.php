@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration {
         Schema::create('transactions', function (Blueprint $table) {
             $table->mediumIncrements('transactionID')->unsigned()->index();
 
-            $table->string('transactionUser', 20)->index();
-            $table->foreign('transactionUser')->references('username')->on('users');
+            $table->unsignedBigInteger('transactionUser')->index();
+            $table->foreign('transactionUser')->references('userID')->on('users');
 
             $table->float('transactionPrice');
             $table->tinyInteger('transactionsQuantity');

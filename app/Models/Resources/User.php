@@ -4,11 +4,10 @@ namespace App\Models\Resources;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model {
+class User extends Model {
 
-    protected $table = 'events';
-    protected $primaryKey = 'eventID';
-    public $timestamps = false;
+    protected $table = 'users';
+    protected $primaryKey = 'userID';
 
     public function getPrice($withDiscount = false) {
         $price = $this->price;

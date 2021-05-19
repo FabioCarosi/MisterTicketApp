@@ -3,6 +3,7 @@
 namespace App\Models\Resources;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Models\Resources;
 
 class Event extends Model {
 
@@ -19,6 +20,12 @@ class Event extends Model {
         $price = round($price - $discount, 2);
 
         return $price;
+    }
+
+    public function getPromoter($eventPromoter) {
+        $promoter = User::find($eventPromoter);
+        $promoterName = $promoter->name;
+        return $promoterName;
     }
 
 }
