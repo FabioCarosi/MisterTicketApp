@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="center">
-        <iframe src="{{asset('https://www.google.com/maps/embed/v1/place?key=AIzaSyAuCP1aWy7zwwpWoFYdHAdOp_QRzS6W8Mk&q='. $event->eventPlace)}}" style="margin: 0 auto" ></iframe>
+        <iframe src="{{asset('https://www.google.com/maps/embed/v1/place?key={{$API_KEY}}&q='. $event->eventPlace)}}" style="margin: 0 auto" ></iframe>
     </div>
 </section>
 @endforeach
